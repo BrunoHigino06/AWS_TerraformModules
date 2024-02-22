@@ -20,5 +20,4 @@ variable "eks" {
         }
       )
     )
-  
 }
