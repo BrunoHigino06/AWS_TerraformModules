@@ -2,7 +2,7 @@ variable "iam_role" {
   type                    = list(object({
     name                  = string
     assume_role_policy    = string
-    desdescription        = optional(string)
+    description           = optional(string)
     force_detach_policies = optional(string)
     inline_policy_name    = optional(string)
     inline_policy         = optional(string)
