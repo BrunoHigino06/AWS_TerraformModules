@@ -16,6 +16,10 @@ variable "eks" {
           control_plane_instance_type                 = optional(string)
           outpost_arns                                = optional(string)
           group_name                                  = optional(string)
+          enabled_cluster_log_types                   = optional(string)
+          version                                     = optional(string)
+          resource                                    = optional(string)
+          outpost_arns                                = optional(string)
           tags                                        = map(string)
         }
       )
