@@ -18,7 +18,7 @@ resource "aws_eks_cluster" "main" {
   }
 
   encryption_config {
-    resources = var.eks[count.index].resource
+    resources = var.eks[count.index].resources
     provider {
       key_arn = var.eks[count.index].key_arn
     }

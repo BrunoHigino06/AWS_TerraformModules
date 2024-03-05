@@ -17,8 +17,8 @@ variable "eks" {
           outpost_arns                                = optional(string)
           group_name                                  = optional(string)
           enabled_cluster_log_types                   = optional(list(string))
-          version                                     = optional(list(string))
-          resource                                    = optional(string)
+          version                                     = optional(string)
+          resources                                   = optional(list(string))
           outpost_arns                                = optional(list(string))
           tags                                        = map(string)
         }
