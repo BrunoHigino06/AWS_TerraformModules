@@ -27,11 +27,4 @@ variable "eks" {
         }
       )
     )
-    default = [ 
-      {
-        use_encryption_config                           = false
-        use_kubernetes_network_config                   = false
-        use_outpost_config                              = false
-      } 
-    ]
 }
