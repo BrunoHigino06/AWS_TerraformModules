@@ -49,8 +49,8 @@ variable "eks" {
           resources                                   = null
           outpost_arns                                = null
           tags                                        = null
-          use_encryption_config                       = null
-          use_kubernetes_network_config               = null
-          use_outpost_config                          = null
+          use_encryption_config                       = false
+          use_kubernetes_network_config               = false
+          use_outpost_config                          = false
   } ] 
 }
