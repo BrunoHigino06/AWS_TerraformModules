@@ -27,30 +27,4 @@ variable "eks" {
         }
       )
     )
-  default = [ {
-          name                                        = null
-          role_arn                                    = null
-          subnet_ids                                  = null
-          endpoint_private_access                     = null
-          endpoint_public_access                      = null
-          public_access_cidrs                         = null
-          security_group_ids                          = null
-          authentication_mode                         = null
-          bootstrap_cluster_creator_admin_permissions = null
-          resources                                   = null
-          key_arn                                     = null
-          service_ipv4_cidr                           = null
-          ip_family                                   = null
-          control_plane_instance_type                 = null
-          outpost_arns                                = null
-          group_name                                  = null
-          enabled_cluster_log_types                   = null
-          version                                     = null
-          resources                                   = null
-          outpost_arns                                = null
-          tags                                        = null
-          use_encryption_config                       = null
-          use_kubernetes_network_config               = null
-          use_outpost_config                          = null
-  } ] 
 }
