@@ -17,13 +17,6 @@ resource "aws_eks_cluster" "main" {
     bootstrap_cluster_creator_admin_permissions = var.eks[count.index].bootstrap_cluster_creator_admin_permissions
   }
 
-  encryption_config {
-    resources = var.eks[count.index].resources
-    provider {
-        key_arn = var.eks[count.index].key_arn
-     }
-  }
-
   kubernetes_network_config {
     service_ipv4_cidr = var.eks[count.index].service_ipv4_cidr
     ip_family         = var.eks[count.index].ip_family

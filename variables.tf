@@ -21,9 +21,6 @@ variable "eks" {
           resources                                   = optional(list(string))
           outpost_arns                                = optional(list(string))
           tags                                        = map(string)
-          use_encryption_config                       = optional(bool)
-          use_kubernetes_network_config               = optional(bool)
-          use_outpost_config                          = optional(bool)
         }
       )
     )
