@@ -19,7 +19,7 @@ resource "aws_eks_cluster" "main" {
 
   
   dynamic "encryption_config" {
-    for_each = var.eks[count.index].use_encryption_config =="" ? [false] : [true]
+    for_each = var.eks[count.index].use_encryption_config == "" ? [false] : [true]
     content {
       resources = var.eks[count.index].resources
       provider {
@@ -29,7 +29,7 @@ resource "aws_eks_cluster" "main" {
   }
 
   dynamic "kubernetes_network_config" {
-    for_each            = var.eks[count.index].use_kubernetes_network_config =="" ? [false] : [true]
+    for_each            = var.eks[count.index].use_kubernetes_network_config == "" ? [false] : [true]
     content {
       service_ipv4_cidr = var.eks[count.index].service_ipv4_cidr
       ip_family         = var.eks[count.index].ip_family
@@ -37,7 +37,7 @@ resource "aws_eks_cluster" "main" {
   }
 
   dynamic "outpost_config" {
-    for_each                      = var.eks[count.index].use_outpost_config =="" ? [false] : [true]
+    for_each                      = var.eks[count.index].use_outpost_config == "" ? [false] : [true]
     content {
       control_plane_instance_type = var.eks[count.index].control_plane_instance_type
       outpost_arns                = var.eks[count.index].outpost_arns
