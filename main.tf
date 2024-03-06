@@ -1,5 +1,5 @@
 resource "aws_eks_cluster" "main" {
-  count                     =  length(var.eks) 
+  count                     = length(var.eks) 
   name                      = var.eks[count.index].name
   role_arn                  = var.eks[count.index].role_arn
   enabled_cluster_log_types = var.eks[count.index].enabled_cluster_log_types
@@ -28,5 +28,6 @@ resource "aws_eks_cluster" "main" {
     service_ipv4_cidr = var.eks[count.index].service_ipv4_cidr
     ip_family         = var.eks[count.index].ip_family
   }
+
   tags = var.eks[count.index].tags
 }
