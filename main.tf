@@ -14,9 +14,9 @@ resource "aws_eks_node_group" "eks_node_group" {
   release_version               = var.eks_node_group[count.index].release_version
   version                       = var.eks_node_group[count.index].version
   taint {
-    key                         = var.eks_node_group[count.index].key
-    value                       = var.eks_node_group[count.index].value
-    effect                      = var.eks_node_group[count.index].effect
+    key                         = lookup(var.eks_node_group[count.index], "key", null)
+    value                       = lookup(var.eks_node_group[count.index], "value", null)
+    effect                      = lookup(var.eks_node_group[count.index], "effect", null)
   }
   remote_access {
     ec2_ssh_key                 = var.eks_node_group[count.index].ec2_ssh_key
@@ -24,9 +24,9 @@ resource "aws_eks_node_group" "eks_node_group" {
   }
 
   launch_template {
-    id                          = var.eks_node_group[count.index].id
-    name                        = var.eks_node_group[count.index].name
-    version                     = var.eks_node_group[count.index].version
+    id                          = lookup(var.eks_node_group[count.index], "id", null)
+    name                        = lookup(var.eks_node_group[count.index], "name", null)
+    version                     = lookup(var.eks_node_group[count.index], "version", null)
   }
 
   scaling_config {
@@ -36,8 +36,8 @@ resource "aws_eks_node_group" "eks_node_group" {
   }
 
   update_config {
-    max_unavailable             = var.eks_node_group[count.index].max_unavailable
-    max_unavailable_percentage  = var.eks_node_group[count.index].max_unavailable_percentage
+    max_unavailable             = lookup(var.eks_node_group[count.index], "max_unavailable", null)
+    max_unavailable_percentage  = lookup(var.eks_node_group[count.index], "max_unavailable_percentage", null)
   }
 
   tags                          = var.eks_node_group[count.index].tags
