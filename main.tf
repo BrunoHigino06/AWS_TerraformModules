@@ -8,7 +8,7 @@ resource "aws_eks_node_group" "eks_node_group" {
   capacity_type                 = var.eks_node_group[count.index].capacity_type
   disk_size                     = var.eks_node_group[count.index].disk_size
   force_update_version          = var.eks_node_group[count.index].force_update_version
-  instance_types                = var.eks_node_group[count.index].instance_types
+  instance_types                = [var.eks_node_group[count.index].instance_types]
   labels                        = var.eks_node_group[count.index].labels
   node_group_name_prefix        = var.eks_node_group[count.index].node_group_name_prefix
   release_version               = var.eks_node_group[count.index].release_version
