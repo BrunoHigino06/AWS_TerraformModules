@@ -20,10 +20,11 @@ resource "aws_eks_node_group" "eks_node_group" {
   }
 
   launch_template {
-    id                          = lookup(var.eks_node_group[count.index], "id", null)
-    name                        = lookup(var.eks_node_group[count.index], "name", null)
-    version                     = lookup(var.eks_node_group[count.index], "version", null)
+    id                          = var.eks_node_group[count.index].launch_template.id
+    name                        = var.eks_node_group[count.index].launch_template.name
+    version                     = var.eks_node_group[count.index].launch_template.version
   }
+
 
   scaling_config {
     desired_size                = var.eks_node_group[count.index].desired_size
