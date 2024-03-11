@@ -22,7 +22,7 @@ resource "aws_eks_node_group" "eks_node_group" {
   launch_template {
     id                          = lookup(var.eks_node_group[count.index], "id", null)
     name                        = lookup(var.eks_node_group[count.index], "name", null)
-    version                     = lookup(var.eks_node_group[count.index], "version", 1)
+    version                     = lookup(var.eks_node_group[count.index], "version", null)
   }
 
   scaling_config {
@@ -32,7 +32,7 @@ resource "aws_eks_node_group" "eks_node_group" {
   }
 
   update_config {
-    max_unavailable_percentage  = lookup(var.eks_node_group[count.index], "max_unavailable_percentage", null)
+    max_unavailable_percentage  = var.eks_node_group[count.index].max_unavailable_percentage
   }
 
   tags                          = var.eks_node_group[count.index].tags

@@ -21,7 +21,7 @@ variable "eks_node_group" {
     desired_size                = string
     max_size                    = string
     min_size                    = string
-    max_unavailable_percentage  = optional(string)
+    max_unavailable_percentage  = string
     tags                        = map(string)
   }))
 }
