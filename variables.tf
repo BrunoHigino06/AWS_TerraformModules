@@ -15,7 +15,7 @@ variable "eks_node_group" {
     version                     = optional(string)
     ec2_ssh_key                 = optional(string) 
     source_security_group_ids   = optional(list(string))
-    launch_template             = optiona(object({
+    launch_template             = optional(object({
       id                        = optional(string)
       name                      = optional(string)
       version                   = optional(string)
