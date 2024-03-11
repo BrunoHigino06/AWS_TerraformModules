@@ -13,9 +13,6 @@ variable "eks_node_group" {
     node_group_name_prefix      = optional(string)
     release_version             = optional(string)
     version                     = optional(string)
-    key                         = optional(string) 
-    value                       = optional(string)
-    effect                      = optional(string)
     ec2_ssh_key                 = optional(string) 
     source_security_group_ids   = optional(list(string)) 
     id                          = optional(string)
@@ -24,7 +21,6 @@ variable "eks_node_group" {
     desired_size                = string
     max_size                    = string
     min_size                    = string
-    max_unavailable             = optional(string)
     max_unavailable_percentage  = optional(string)
     tags                        = map(string)
   }))
