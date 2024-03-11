@@ -15,9 +15,9 @@ variable "eks_node_group" {
     version                     = optional(string)
     ec2_ssh_key                 = optional(string) 
     source_security_group_ids   = optional(list(string)) 
-    id                          = optional(string)
-    name                        = optional(string)
-    version                     = optional(string)
+    launch_template_id          = optional(string)
+    launch_template_name        = optional(string)
+    launch_template_version     = optional(string)
     desired_size                = string
     max_size                    = string
     min_size                    = string

@@ -20,9 +20,9 @@ resource "aws_eks_node_group" "eks_node_group" {
   }
 
   launch_template {
-    id                          = var.eks_node_group[count.index].launch_template.id
-    name                        = var.eks_node_group[count.index].launch_template.name
-    version                     = var.eks_node_group[count.index].launch_template.version
+    id                          = var.eks_node_group[count.index].launch_template_id
+    name                        = var.eks_node_group[count.index].launch_template_name
+    version                     = var.eks_node_group[count.index].launch_template_version
   }
 
 
