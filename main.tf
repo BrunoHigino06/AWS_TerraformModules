@@ -13,11 +13,7 @@ resource "aws_eks_node_group" "eks_node_group" {
   node_group_name_prefix        = var.eks_node_group[count.index].node_group_name_prefix
   release_version               = var.eks_node_group[count.index].release_version
   version                       = var.eks_node_group[count.index].version
-  taint {
-    key                         = lookup(var.eks_node_group[count.index], "key", null)
-    value                       = lookup(var.eks_node_group[count.index], "value", null)
-    effect                      = lookup(var.eks_node_group[count.index], "effect", null)
-  }
+  
   remote_access {
     ec2_ssh_key                 = var.eks_node_group[count.index].ec2_ssh_key
     source_security_group_ids   = var.eks_node_group[count.index].source_security_group_ids
@@ -26,7 +22,7 @@ resource "aws_eks_node_group" "eks_node_group" {
   launch_template {
     id                          = lookup(var.eks_node_group[count.index], "id", null)
     name                        = lookup(var.eks_node_group[count.index], "name", null)
-    version                     = lookup(var.eks_node_group[count.index], "version", null)
+    version                     = lookup(var.eks_node_group[count.index], "version", 1)
   }
 
   scaling_config {
@@ -36,7 +32,6 @@ resource "aws_eks_node_group" "eks_node_group" {
   }
 
   update_config {
-    max_unavailable             = lookup(var.eks_node_group[count.index], "max_unavailable", null)
     max_unavailable_percentage  = lookup(var.eks_node_group[count.index], "max_unavailable_percentage", null)
   }
 
