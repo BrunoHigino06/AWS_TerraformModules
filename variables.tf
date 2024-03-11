@@ -14,10 +14,12 @@ variable "eks_node_group" {
     release_version             = optional(string)
     version                     = optional(string)
     ec2_ssh_key                 = optional(string) 
-    source_security_group_ids   = optional(list(string)) 
-    launch_template_id          = optional(string)
-    launch_template_name        = optional(string)
-    launch_template_version     = optional(string)
+    source_security_group_ids   = optional(list(string))
+    launch_template             = optiona(object({
+      id                        = optional(string)
+      name                      = optional(string)
+      version                   = optional(string)
+    })) 
     desired_size                = string
     max_size                    = string
     min_size                    = string

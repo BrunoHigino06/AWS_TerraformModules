@@ -19,12 +19,14 @@ resource "aws_eks_node_group" "eks_node_group" {
     source_security_group_ids   = var.eks_node_group[count.index].source_security_group_ids
   }
 
-  launch_template {
-    id                          = var.eks_node_group[count.index].launch_template_id
-    name                        = var.eks_node_group[count.index].launch_template_name
-    version                     = var.eks_node_group[count.index].launch_template_version
+  dynamic "launch_template" {
+    for_each = var.eks_node_group[count.index].launch_template != null ? [1] : []
+    content {
+      id      = launch_template.value.id
+      name    = launch_template.value.name
+      version = launch_template.value.version
+    }
   }
-
 
   scaling_config {
     desired_size                = var.eks_node_group[count.index].desired_size
