@@ -4,6 +4,8 @@ resource "aws_instance" "ec2_instance" {
     instance_type = var.ec2_instance[count.index].instance_type
     associate_public_ip_address = var.ec2_instance[count.index].associate_public_ip_address
     availability_zone = var.ec2_instance[count.index].availability_zone
+    vpc_security_group_ids = [  ]
+    subnet_id = 
     ebs_block_device {
       
     }
