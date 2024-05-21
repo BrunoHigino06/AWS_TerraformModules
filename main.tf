@@ -2,7 +2,7 @@
 resource "aws_network_acl" "network_acl" {
   count       = length(var.network_acl)
   vpc_id      = var.network_acl[count.index].vpc_id
-  subnet_ids  = var.network_acl[count.index].subnet_ids
+  subnet_ids  = [var.network_acl[count.index].subnet_ids]
 
   dynamic "egress" {
     for_each     = var.network_acl[count.index].egress
