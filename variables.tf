@@ -4,7 +4,7 @@ variable "network_acl" {
     name          = string
     vpc_id        = string
     tags          = map(string)
-    subnet_ids    = optional(string)
+    subnet_ids    = optional(list(string))
     egress        = list(object({
       protocol    = string 
       rule_no     = string
