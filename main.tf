@@ -5,7 +5,7 @@ resource "aws_instance" "ec2_instance" {
     associate_public_ip_address = var.ec2_instance[count.index].associate_public_ip_address
     availability_zone           = var.ec2_instance[count.index].availability_zone
     vpc_security_group_ids      = [for sg in data.aws_security_group.security_group : sg.id]
-    subnet_id                   = [for subnet in data.aws_subnet.subnet : subnet.id]
+    subnet_id                   = data.aws_subnet.subnet[var.ec2_instance[count.index].subnet_name].id
     key_name                    = var.ec2_instance[count.index].key_name
     ebs_block_device {
       device_name               = var.ec2_instance[count.index].ebs_block_device.device_name
