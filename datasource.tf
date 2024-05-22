@@ -11,10 +11,6 @@ locals {
       name = "tag:unique_name"
       values = [each.key]
     }
-    
-    depends_on = [ 
-      module.subnet
-    ]
   }
 
 # Data Security group
@@ -25,8 +21,4 @@ locals {
       name = "tag:Name"
       values = [each.key]
     }
-
-    depends_on = [ 
-      module.security_group
-    ]
   }
