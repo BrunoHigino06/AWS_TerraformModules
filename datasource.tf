@@ -5,7 +5,7 @@ locals {
 
 # Data subnets
   data "aws_subnet" "subnet" {
-    for_each = { for subnet in local.subnet_unique_names : subnet => subnet }
+    for_each = { for subnet in local.subnet_unique_names : subnet => subnet ...}
 
     filter {
       name = "tag:unique_name"
@@ -15,7 +15,7 @@ locals {
 
 # Data Security group
   data "aws_security_group" "security_group" {
-    for_each = { for security_group in local.security_group_names : security_group => security_group }
+    for_each = { for security_group in local.security_group_names : security_group => security_group ...}
 
     filter {
       name = "tag:Name"
