@@ -7,6 +7,7 @@ resource "aws_instance" "ec2_instance" {
     vpc_security_group_ids      = [for sg in data.aws_security_group.security_group : sg.id]
     subnet_id                   = data.aws_subnet.subnet[var.ec2_instance[count.index].subnet_name].id
     key_name                    = var.ec2_instance[count.index].key_name
+    user_data                   = var.ec2_instance[count.index].user_data
     ebs_block_device {
       device_name               = var.ec2_instance[count.index].ebs_block_device.device_name
       delete_on_termination     = var.ec2_instance[count.index].ebs_block_device.delete_on_termination
@@ -18,7 +19,6 @@ resource "aws_instance" "ec2_instance" {
       volume_size               = var.ec2_instance[count.index].ebs_block_device.volume_size
       volume_type               = var.ec2_instance[count.index].ebs_block_device.volume_type
     }
-
     tags                        = merge(
         var.ec2_instance[count.index].tags,
         {Name                   = var.ec2_instance[count.index].name}

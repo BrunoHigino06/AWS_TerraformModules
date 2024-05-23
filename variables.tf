@@ -9,6 +9,7 @@ variable "ec2_instance" {
     availability_zone           = optional(string)
     subnet_name                 = optional(string)
     security_group_name         = optional(list(string))
+    user_data                   = optional(string)
     ebs_block_device            = optional(object({
       volume_size               = string
       volume_type               = string
