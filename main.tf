@@ -8,6 +8,7 @@ resource "aws_instance" "ec2_instance" {
     subnet_id                   = data.aws_subnet.subnet[var.ec2_instance[count.index].subnet_name].id
     key_name                    = var.ec2_instance[count.index].key_name
     user_data                   = var.ec2_instance[count.index].user_data
+    private_ip                  = var.ec2_instance[count.index].private_ip
     ebs_block_device {
       device_name               = var.ec2_instance[count.index].ebs_block_device.device_name
       delete_on_termination     = var.ec2_instance[count.index].ebs_block_device.delete_on_termination
