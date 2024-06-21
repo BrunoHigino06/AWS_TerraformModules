@@ -17,7 +17,7 @@ resource "aws_db_instance" "db_instance" {
     skip_final_snapshot     = var.db_instance[count.indes].skip_final_snapshot
     db_subnet_group_name    = var.db_instance[count.indes].db_subnet_group_name
     tags                    = merge(
-                              var.db_instance[count.indes].tags,
+                              var.db_instance[count.index].tags,
         {name               = var.db_instance[count.index].name}
     )
 }
