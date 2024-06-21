@@ -15,6 +15,7 @@ resource "aws_db_instance" "db_instance" {
     password                = random_password.db_password.result
     parameter_group_name    = var.db_instance[count.indes].parameter_group_name
     skip_final_snapshot     = var.db_instance[count.indes].skip_final_snapshot
+    db_subnet_group_name    = var.db_instance[count.indes].db_subnet_group_name
     tags                    = merge(
                               var.db_instance[count.indes].tags,
         {name               = var.db_instance[count.index].name}

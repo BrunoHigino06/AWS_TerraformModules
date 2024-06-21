@@ -9,6 +9,7 @@ variable "db_instance" {
     username                = string
     parameter_group_name    = string
     skip_final_snapshot     = string
+    db_subnet_group_name    = string
     tags                    = map(string)
   }))
 }
