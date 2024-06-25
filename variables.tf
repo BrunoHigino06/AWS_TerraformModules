@@ -3,6 +3,7 @@ variable "db_instance" {
     name                    = string
     allocated_storage       = string
     db_name                 = string
+    identifier              = string
     engine                  = string
     engine_version          = string
     instance_class          = string

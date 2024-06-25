@@ -8,6 +8,7 @@ resource "aws_db_instance" "db_instance" {
     count                   = length(var.db_instance)      
     allocated_storage       = var.db_instance[count.index].allocated_storage
     db_name                 = var.db_instance[count.index].db_name
+    identifier              = var.db_instance[count.index].identifier
     engine                  = var.db_instance[count.index].engine
     engine_version          = var.db_instance[count.index].engine_version
     instance_class          = var.db_instance[count.index].instance_class
