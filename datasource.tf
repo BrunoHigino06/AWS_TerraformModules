@@ -1,5 +1,5 @@
 locals {
-  subnet_unique_names     = flatten([for subnet_group in var.db_subnet_group : subnet_group.subnet_unique_name])
+  subnet_unique_names     = flatten([for subnet_group in var.db_subnet_group : subnet_group.subnet_names])
 }
 
 data "aws_subnet" "subnet" {
